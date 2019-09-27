@@ -3,7 +3,7 @@
 //!
 //!	@author - HuangWang
 //!
-//! @date - 2019-09-26
+//! @data - 2019-09-26
 //!
 
 
@@ -48,11 +48,11 @@ namespace DynamicModuleLoaderSpace
 		DMS_Loaded = 1
 	};
 
-	class DynamicModuleLoder
+	class DynamicModuleLoader
 	{
 	public:
-		DynamicModuleLoder();
-		virtual ~DynamicModuleLoder();
+		DynamicModuleLoader();
+		virtual ~DynamicModuleLoader();
 
 		static bool IsFileExist(const std::string filePath);
 

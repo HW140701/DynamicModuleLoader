@@ -2,15 +2,15 @@
 
 namespace DynamicModuleLoaderSpace
 {
-	DynamicModuleLoder::DynamicModuleLoder() :m_DynamicModulePtr(NULL), m_ErrorMessage(""), m_DynamicModuleState(DynamicModuleState::DMS_UnLoaded)
+	DynamicModuleLoader::DynamicModuleLoader() :m_DynamicModulePtr(NULL), m_ErrorMessage(""), m_DynamicModuleState(DynamicModuleState::DMS_UnLoaded)
 	{
 	}
 
-	DynamicModuleLoder::~DynamicModuleLoder()
+	DynamicModuleLoader::~DynamicModuleLoader()
 	{
 	}
 
-	bool DynamicModuleLoder::IsFileExist(const std::string filePath)
+	bool DynamicModuleLoader::IsFileExist(const std::string filePath)
 	{
 		std::fstream file;
 		file.open(filePath, std::ios::in);
@@ -25,7 +25,7 @@ namespace DynamicModuleLoaderSpace
 		}
 	}
 
-	bool DynamicModuleLoder::LoadDynamicModule(const std::string dynamicModulePath)
+	bool DynamicModuleLoader::LoadDynamicModule(const std::string dynamicModulePath)
 	{
 		if (IsFileExist(dynamicModulePath))
 		{
@@ -54,7 +54,7 @@ namespace DynamicModuleLoaderSpace
 		return false;
 	}
 
-	void* DynamicModuleLoder::GetFunction(const std::string functionName)
+	void* DynamicModuleLoader::GetFunction(const std::string functionName)
 	{
 		if (m_DynamicModulePtr)
 		{
@@ -81,7 +81,7 @@ namespace DynamicModuleLoaderSpace
 		return NULL;
 	}
 
-	bool DynamicModuleLoder::UnloadDynamicModule()
+	bool DynamicModuleLoader::UnloadDynamicModule()
 	{
 		if (m_DynamicModulePtr)
 		{
@@ -106,7 +106,7 @@ namespace DynamicModuleLoaderSpace
 #endif
 
 
-	void DynamicModuleLoder::GetInternalErrorMessge(int errorCode)
+	void DynamicModuleLoader::GetInternalErrorMessge(int errorCode)
 	{
 		std::string errorMessge = "";
 #ifdef WINDOWS
@@ -134,12 +134,12 @@ namespace DynamicModuleLoaderSpace
 		m_ErrorMessage = errorMessge;
 	}
 
-	std::string DynamicModuleLoder::GetErrorMessage()
+	std::string DynamicModuleLoader::GetErrorMessage()
 	{
 		return m_ErrorMessage;
 	}
 
-	bool DynamicModuleLoder::GetDynamicModuleState()
+	bool DynamicModuleLoader::GetDynamicModuleState()
 	{
 		return (bool)m_DynamicModuleState;
 	}
