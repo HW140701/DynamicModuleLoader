@@ -8,7 +8,7 @@ DynamicModuleLoader is a C++ class that can load dynamic libraries on Windows an
 #include<iostream>
 
 #include "DynamicModuleLoder.h"
-typedef void(*Func_Add)(int,int);
+typedef int(*Func_Add)(int,int);
 
 int main()
 {
