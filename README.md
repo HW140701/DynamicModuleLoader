@@ -15,7 +15,7 @@ int main()
 	DynamicModuleLoder dllLoader;
 	if (dllLoader.LoadDynamicModule("add.dll"))
 	{
-		void* voidTest = firstLoader.GetFunction("Add");
+		void* voidTest = dllLoader.GetFunction("Add");
 		if (voidTest != NULL)
 		{
 			Func_Add f_add = (Func_Add )(voidTest );
